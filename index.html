@@ -14,16 +14,32 @@
 </head>
 
 <body>
-    <section class="menu ">
+    <section class="menu p-5 flex min-h-screen justify-center items-center flex-col ">
         <div class="title mb-10 flex justify-content items-center flex-col">
             <h2 class="text-4xl mb-3">Our Menu</h2>
             <span class="underline bg-blue-500 w-16 h-1 block m-auto"> </span>
             <!-- filter buttons -->
             <!-- Menu Items -->
         </div>
-        <div class="section-center flex justify-content items-center flex-col w-4/5 p-4 m-auto">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2  ">
             <!-- single items -->
-            <article class="grid grid-cols-1 md:grid-cols-2 ">
+            <article class=" md:flex flex-col">
+                <div> <img src="./img/hamburger.jpeg" class="photo w-full  h-auto " alt="menu-item">
+                </div>
+                <div class="item-info">
+                    <header>
+                        <h4>buttermilk Pancakes</h4>
+                        <h4 class="price">$ 15</h4>
+                    </header>
+                    <p class="item-text">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis voluptatem, ea quis
+                        veritatis id debitis itaque ullam animi tempore quidem perferendis est, mollitia sequi
+                        accusantium delectus, possimus odio fugiat ratione?
+                    </p>
+                </div>
+
+            </article>
+            <article class=" ">
                 <img src="./img/hamburger.jpeg" class="photo w-full h-auto max-w-lg mx-auto" alt="menu-item">
                 <div class="item-info">
                     <header>
