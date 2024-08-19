@@ -82,9 +82,26 @@ const menu = [
 ]
 
 const sectionCenter = document.querySelector(".section-center");
+const menuBtns = document.querySelectorAll(".menu-btn");
 
+
+// Show Menu itemsssss
 window.addEventListener("DOMContentLoaded", function () {
-    let displayMenu = menu.map(function (item) {
+    displayMenuItems(menu); 
+});
+
+// Filter menu itemssss
+
+menuBtns.forEach(function(btn){
+    btn.addEventListener("click", function(e){
+        console.log(e.currentTarget.dataset);
+    });
+});
+
+
+
+function displayMenuItems(menuItems) {
+    let displayMenu = menuItems.map(function (item) {
 
         return `<div class="col-lg-6 col-11 menu-item">
                    <div class="d-lg-flex">
@@ -103,6 +120,6 @@ window.addEventListener("DOMContentLoaded", function () {
         </div>
     </div>`
     });
-    displayMenu = displayMenu.join("")
-    console.log(displayMenu);
-})
+    displayMenu = displayMenu.join("");
+    sectionCenter.innerHTML = displayMenu;
+}

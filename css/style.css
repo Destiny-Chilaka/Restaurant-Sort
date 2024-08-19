@@ -36,6 +36,22 @@ body {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.menu-btn {
+    padding: 1em 2em;
+    border: 1px solid #ffa013;
+    background-color: #fff;
+    color: #ffa013;
+    margin: 1em 1em;
+    border-radius: 0.5em;
+    transition: 0.2s ease-in;
+    display: inline-block;
+}
+
+.menu-btn:hover {
+    color: #fff;
+    background-color: #ffa013;
+}
+
 .item-name {
     padding-top: 1em;
     margin-left: 1em;
@@ -46,7 +62,16 @@ body {
     font-weight: bold;
 }
 
+.btn-container {
+    display: flex;
+    justify-content: center;
 
+    @media (max-width:500px) {
+        display: flex;
+        flex-direction: column;
+
+    }
+}
 
 @media (min-width: 992px) {
     .col-lg-6 {
