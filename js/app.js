@@ -87,14 +87,26 @@ const menuBtns = document.querySelectorAll(".menu-btn");
 
 // Show Menu itemsssss
 window.addEventListener("DOMContentLoaded", function () {
-    displayMenuItems(menu); 
+    displayMenuItems(menu);
 });
 
 // Filter menu itemssss
 
-menuBtns.forEach(function(btn){
-    btn.addEventListener("click", function(e){
-        console.log(e.currentTarget.dataset);
+menuBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+        const category = e.currentTarget.dataset.id
+        const menuCategory = menu.filter(function (menuItem) {
+            // console.log(menuItem.category);
+            if (menuItem.category === category) {
+                return menuItem
+            };
+
+        });
+        if (category === "all") {
+            displayMenuItems(menu);
+        } else {
+            displayMenuItems(menuCategory);
+        };
     });
 });
 
@@ -111,7 +123,7 @@ function displayMenuItems(menuItems) {
                           <div class="item-info">
                              <div class="item-name">
                              <h5>${item.title}</h5>
-                             <span class="price">${item.price}</span>
+                             <span class="price">$${item.price}</span>
                         <p class="item-text">
                                 ${item.text}
                         </p>
