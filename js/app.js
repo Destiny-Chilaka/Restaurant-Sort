@@ -79,42 +79,37 @@ const menu = [
         img: "./img/img-10.jpeg",
         text: "Vanilla soft-serve ice cream topped with hot fudge and a sprinkle of peanuts."
     },
+    {
+        id: 11,
+        title: "Air Fryer salmon",
+        price: 17,
+        category: "dinner",
+        img: "./img/img-11.jpeg",
+        text: "Air Fryer Salmon is a quick and easy way to cook salmon, which results in seared edges and tender, flaky center."
+    },
+    {
+        id: 12,
+        title: "lasagne",
+        price: 11,
+        category: "dinner",
+        img: "./img/img-12.jpeg",
+        text: "This lasagna recipe from John Chandler is our most popular recipe! With sausage, ground beef, basil, and 3 types of cheese."
+    },
 ]
 
 const sectionCenter = document.querySelector(".section-center");
-const menuBtns = document.querySelectorAll(".menu-btn");
+const container = document.querySelector(".btn-container");
 
 
 // Show Menu itemsssss
 window.addEventListener("DOMContentLoaded", function () {
     displayMenuItems(menu);
-    const categories = menu.reduce(function (values, item) {
-        return values
-        
-    }, ['all'])
-    console.log(values);
+    displayMenuBtn();
 });
 
 // Filter menu itemssss
 
-menuBtns.forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
-        const category = e.currentTarget.dataset.id
-        const menuCategory = menu.filter(function (menuItem) {
-            // console.log(menuItem.category);
-            if (menuItem.category === category) {
-                return menuItem
-            };
 
-        });
-        if (category === "all") {
-            displayMenuItems(menu);
-        } else {
-            displayMenuItems(menuCategory);
-        };
-        console.log(menuCategory);
-    });
-});
 
 
 
@@ -140,4 +135,36 @@ function displayMenuItems(menuItems) {
     });
     displayMenu = displayMenu.join("");
     sectionCenter.innerHTML = displayMenu;
+}
+
+function displayMenuBtn() {
+    const categories = menu.reduce(function (values, item) {
+        if (!values.includes(item.category)) {
+            values.push(item.category);
+        }
+        return values;
+    }, ['all'])
+    const categoryBtn = categories.map(function (btn) {
+        return `<button type="button" class="menu-btn" data-id="${btn}">${btn}</button>`
+    }).join("");
+    container.innerHTML = categoryBtn;
+    const menuBtns = document.querySelectorAll(".menu-btn");
+    menuBtns.forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+            const category = e.currentTarget.dataset.id
+            const menuCategory = menu.filter(function (menuItem) {
+                // console.log(menuItem.category);
+                if (menuItem.category === category) {
+                    return menuItem
+                };
+
+            });
+            if (category === "all") {
+                displayMenuItems(menu);
+            } else {
+                displayMenuItems(menuCategory);
+            };
+
+        });
+    });
 }
