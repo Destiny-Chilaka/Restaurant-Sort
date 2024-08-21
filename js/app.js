@@ -88,6 +88,11 @@ const menuBtns = document.querySelectorAll(".menu-btn");
 // Show Menu itemsssss
 window.addEventListener("DOMContentLoaded", function () {
     displayMenuItems(menu);
+    const categories = menu.reduce(function (values, item) {
+        return values
+        
+    }, ['all'])
+    console.log(values);
 });
 
 // Filter menu itemssss
@@ -107,6 +112,7 @@ menuBtns.forEach(function (btn) {
         } else {
             displayMenuItems(menuCategory);
         };
+        console.log(menuCategory);
     });
 });
 
